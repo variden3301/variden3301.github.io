@@ -1,0 +1,964 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Kutu modelini sıfırlayın */
+}
+
+
+body {
+    margin: 0;
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    width: 100%; /* Sayfa genişliğini tarayıcı penceresinin genişliğine eşitle */
+    height: 100vh; /* Sayfa yüksekliğini tarayıcı penceresinin yüksekliğine eşitle */
+   
+    padding: 0; /* Sayfanın dolgularını kaldır */
+    overflow-x: hidden; /* Yatay kaydırmayı devre dışı bırak */
+}
+
+.top-menu {
+    width: 100%; /* Sayfa genişliğine göre genişlik ayarla */
+    max-width: 1519px; /* Maksimum genişlik belirle */
+    margin: 0 auto; /* Merkezlemek için otomatik kenar boşluğu ekle */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    height: 30px;
+    background-color: #2b3947;
+    position: fixed; /* Üst menüyü sabit konuma getir */
+    top: 0; /* Üst kenara dayalı olacak şekilde */
+
+}
+
+.top-menu .nav-links ul {
+    list-style: none;
+    display: flex;
+
+}
+
+.top-menu .nav-links ul li {
+    margin-right: 10px; /* Her öğe arasındaki sağ boşluğu ayarlayın */
+
+}
+
+.top-menu .nav-links ul li:last-child {
+    margin-right: 6px; /* Son öğe için sağ boşluğu kaldırın */
+}
+
+.top-menu .nav-links ul li a {
+    text-decoration: none; /* Bağlantı altını çizme */
+    color: #c3cbd7;
+    font-size: 11px; /* Bağlantı yazı boyutu */
+}
+
+.top-menu .nav-links ul li a:hover {
+    color: #ffffff; /* Fare bağlantı üzerine gelindiğinde renk değiştirme */
+}
+
+.main-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 30px;
+    padding: 0 20px; 
+    background-color: #232b38;/* Sağdan ve soldan içerideki içeriğin boşluğunu ayarlayın */
+    z-index: 999; /* Üst menüden daha altta olmalı */
+}
+
+
+.separator {
+    margin-right: 10px;
+    color: #ffffff; /* Separator rengi */
+}
+
+
+
+.main-menu-container {
+    position: relative; /* İçeriklerin konumunu ayarlamak için */
+}
+
+.main-menu img {
+  
+    height: 40px;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-menu svg {
+    width: 12px;
+    height: 12px;
+    width: auto;
+    margin-left:5px ;
+ 
+}
+.main-menu .nav-links ul {
+    list-style: none;
+    display: flex;
+    padding: 0; /* Listenin dış dolgusunu sıfırlayın */
+    margin: 0; /* Listenin dış kenar boşluğunu sıfırlayın */
+}
+
+.main-menu .nav-links ul li {
+    margin-right: 10px;
+    height: 100%; /* Öğelerin yüksekliğini %100 olarak ayarlayın */
+    display: flex; /* Öğeleri dikey hizalamak için flex kullanın */
+    align-items: center; /* Öğeleri dikeyde ortalamak için */
+}
+
+.main-menu .nav-links ul li:last-child {
+    margin-right: 0;
+}
+
+.main-menu .nav-links ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 13px; /* Bağlantı yazı boyutu */
+    font-weight: 700;
+}
+
+.main-menu .nav-links ul li a:hover {
+    color: #ffffff;
+}
+
+
+
+.search-link svg {
+
+   width: 13px;
+   height: 13px;
+   margin-right: 10px; /* SVG ile metin arasına bir boşluk bırak */
+   order: -1; /* SVG'yi metnin soluna hizalar */
+}
+
+.search-link, .search-link svg {
+    display: inline-flex; /* SVG'yi başlıkla aynı satırda tutar */
+
+}
+.image-container {
+    top: 80px; /* Ana menü yüksekliğine ek olarak 30 piksel daha */
+    left: 0;
+    position: relative; /* Resim ve metin konteynerinin konumu */
+    max-width: 100%; /* Resmin maksimum genişliği */
+    z-index: 1; /* Resmin üzerinde olması gerektiği için */
+}
+
+.image-container img {
+    width: 100%; /* Resim genişliği */
+    height: auto; /* Resim yüksekliği otomatik olarak ayarlanır */
+}
+
+.image-container p {
+    position: absolute; /* Metnin resmin üzerinde olması için */
+    top: 90px; /* Resmin üstünden 10 piksel aşağıda */
+    left: 300px; /* Soldan 10 piksel sağda */
+    color: white; /* Metin rengi */
+    font-size: 24px; /* Metin boyutu */
+   /*  font-weight: bold; Kalın font */
+}
+.image-container p:last-child {
+    top: 120px; /* İkinci paragrafı biraz daha aşağı kaydır */
+    font-size: 38px; /* Metin boyutu */
+    font-weight: 500;
+
+}
+.contact-us {
+    position: fixed; /* Sabit konum */
+    top: 60%; /* Sayfanın ortasından başlayarak */
+    right: 0; /* Otomatik sağ kenarı kaldır */
+
+  
+    background-color: #00548a; /* Mavi arka plan rengi */
+
+    padding: 10px 20px; /* İçeriği sarma */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+    z-index: 999; /* Diğer içeriklerin üzerinde görüntülenir */
+
+    width: 44px;
+    -webkit-user-select: none;
+    user-select: none;
+    writing-mode: vertical-rl;
+    padding: 22px 0;
+    font-size: 16px;
+    line-height: 44px;
+    transform: rotate(180deg);
+    color: #fff;
+    white-space: nowrap;
+
+  }
+  
+  
+
+.tabs {
+    width: 100%;
+    display: inline-block;
+    position: relative; /* Position ekleyerek z-index kullanılabilir */
+    z-index: 2; /* Diğer içeriklerden daha üstte olacak */
+    left:20%;
+    top:-40px;
+}
+
+
+
+/* Clearfix */
+.tab-links:after {
+	display:block;
+	clear:both;
+	content:'';
+}
+
+.tab-links li {
+	margin:0px 5px;
+	float:left;
+	list-style:none;
+}
+
+.tab-links a {
+	padding:9px 15px;
+	display:inline-block;
+	border-radius:3px 3px 0px 0px;
+	background: #f4f5f8;
+    
+	font-size:16px;
+	font-weight:600;
+	color: #647281;
+	transition:all linear 0.15s;
+}
+
+.tab-links a:hover {
+	background:#ffffff;
+	text-decoration:none;
+}
+
+li.active a, li.active a:hover {
+	background:#fff;
+	color:#4c4c4c;
+}
+
+
+.tab-content {
+	padding:15px;
+	border-radius:3px;
+	box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+	background:#fff;
+    width: 994px;
+    height:200px;
+
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.tab {
+	display:none;
+}
+
+
+.tab-links a {
+    position: relative; /* Bağlantının pozisyonunu ayarla */
+    color: #4c4c4c;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all linear 0.15s;
+    text-decoration: none;
+}
+
+.tab-links a:hover {
+    color: #4c4c4c; /* Bağlantı üzerine gelindiğinde rengi kırmızı yap */
+    text-decoration: none;
+}
+
+.tab-links a.active {
+    display:flex;
+    color: red; /* Aktif olan bağlantıyı kırmızı yap */
+}
+.tab.active {
+    display: flex;
+}
+
+.tab-links li.active a {
+    background: #fff;
+    color: red;
+}
+
+.tab-links img {
+    width: 18px; /* İstenilen genişlik */
+    height: 18px; /* İstenilen yükseklik */
+}
+/* CSS örnek */
+form {
+    display: flex;
+    flex-direction: row;
+}
+
+.radio-group {
+    margin-right: 20px; /* Her radio input grubu arasındaki sağ boşluğu ayarlar */
+   
+}
+
+.radio-group:last-child {
+    margin-right: 0; /* Son radio input grubu için sağ boşluğu kaldırır */
+    
+}
+
+input[type="radio"] {
+    margin-right: 5px; /* Her radio input arasındaki sağ boşluğu ayarlar */
+   
+}
+.content {
+    display: flex;
+    align-items: center; /* Dikey hizalama */
+  }
+  
+  .content img {
+    width: 20px; /* Resmin genişliği */
+    height: auto; /* Otomatik yükseklik ayarı */
+    margin-right: 10px; /* Resmin sağ tarafındaki boşluk */
+  }
+  
+  .content p {
+    margin: 0; /* Paragrafın kenar boşluklarını sıfırlama */
+  }
+  
+.rectangular-inputs {
+    flex: 1; /* Giriş alanlarının eşit genişlikte olmasını sağla */
+    margin-right: 10px; /* Giriş alanları arasındaki sağ boşluğu ayarla */
+
+    
+    margin-top: 20px; /* Giriş alanları arasındaki boşluğu ayarla */
+    z-index: 1;
+    display: flex; /* Giriş alanlarını yan yana hizalamak için flex kullan */
+}
+
+.rectangular-inputs input[type="text"] {
+    display: block;
+    width: 160px;
+    height:66px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    flex: 1; /* Giriş alanlarının eşit genişlikte olmasını sağla */
+    margin-right: 3px; /* Giriş alanları arasındaki sağ boşluğu ayarla */
+    background: #f4f6f8!important;
+
+}
+
+
+.rectangular-inputs img {
+    width: 33px; /* İkon genişliği */
+    height: 33px; /* İkon yüksekliği */
+  
+    position: relative; /* Görseli diğer içeriklerle hizalamak için */
+    margin-top: 15px; /* Yüksekliği ayarla (inputların yarı yüksekliği kadar yukarıda olacak şekilde) */
+    z-index: 2; /* Diğer içeriklerin üzerine gelmesini sağla */
+    filter: grayscale(100%); /* İkonu griye çevirmek için */
+
+
+}
+
+.date-input {
+    position: relative;
+}
+
+.date-input input[type="text"] {
+    padding-left: 50px; /* Label ve resim için yer bırakmak */
+}
+
+.date-input img {
+    position: absolute;
+    top: 25%;
+    left: 10px; /* Resmin input kutucuğunun solunda olmasını sağlar */
+    transform: translateY(-50%);
+}
+
+/*to 23 e 20 */
+.red-button {
+    display: inline-block;
+    width: 156px;
+    height:66px;
+    background-color: #e81932!important;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+    
+    
+}
+.red-button svg {
+    vertical-align: middle; /* SVG'yi dikey olarak hizalar */
+    margin-right: 10px; /* SVG ile metin arasına biraz boşluk bırakır */
+    margin-bottom: 2px; /* Metni yukarı taşır */
+}
+.tab.active form {
+    flex-direction: row; /* Formdaki öğeleri dikey yönde hizala */
+    align-items: flex-start; /* Öğeleri sola hizala */
+    flex-wrap: wrap; /* Öğelerin alt satıra geçmesini sağla */
+}
+
+.tab.active form p:last-child {
+    margin-left: auto; /* "Recent Searches" metnini sağa hizala */
+}
+
+
+.button-container {
+    position: relative; /* Bağlantının pozisyonunu ayarla */
+    width:994px;
+    display: flex;
+    padding: 0px 50px;
+    margin-top: 0px;
+    margin-left: 300px; /* Sayfanın sol kenarından sağa doğru ortala */
+    margin-right: auto; /* Sayfanın sağ kenarından sola doğru ortala */
+    align-items: center; /* Yuvarlak butonları dikeyde ortala */
+    
+}
+
+
+.round-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 40px; /* Yuvarlak butonların içindeki yuvarlakların hizasını ayarlar */
+    margin-top: 10px;
+}
+
+
+.round-button img {
+    width: 22px;
+    height: 21px;
+    margin: 0; /* Yuvarlak butonların içindeki yuvarlakların hizasını ayarlar */
+}
+
+
+.rectangular-background span {
+    font-size: 12px;
+    color: #232b38;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+
+}
+.rectangular-background {
+    width: 994px;
+    height: 100px;
+    border-radius: 0px;
+    background-color: #ffffff;
+    padding: 5px;
+    display: inline-block; /* Dikdörtgen kutuların yan yana gelmesini sağlar */
+    margin-right: 0px; /* Kutular arasındaki boşluk */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Gölge efekti ekle */
+}
+
+
+
+.slider-container {
+    width: 1018px;
+   height: 196px;
+    margin: auto;
+    margin-top: 50px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+    border: 1px dashed #2e8ffd!important;
+    margin-left: 300px;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .slide {
+    width: 100%;
+    flex-shrink: 0;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .slider-nav {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+  }
+  
+  .slider-nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    outline: none;
+    margin-left: 10px;
+  }
+
+  .slide-content {
+    
+   margin:20px;
+  }
+  .slide-content h2 {
+
+    font-size: 18px; /* Başlık boyutu */
+    margin-bottom: 10px; /* Başlık altındaki boşluk */
+  }
+  
+  .slide-content p {
+    font-size: 16px; /* Paragraf boyutu */
+    margin-bottom: 20px; /* Paragraf altındaki boşluk */
+  }
+  .slide-content svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px; /* SVG ile metin arasına bir boşluk bırakır */
+
+ 
+}
+
+.slide-content h2, .slide-content svg {
+    display: inline-flex; /* SVG'yi başlıkla aynı satırda tutar */
+
+}
+  .highlight {
+    color: red; /* Kırmızı renk */
+  }
+
+  .container {
+  
+    max-width: 1024px; /* Containerın maksimum genişliği */
+    margin: 0 auto; /* Containerı sayfanın ortasına hizalar */
+    padding: 0 15px; /* Containerın kenar dolgularını ayarlar */
+    margin-top: 50px;
+    margin-left: auto; /* Tüm içeriği sağa hizalar */
+    margin-right: 200px; /* Sağ kenar boşluğunu sıfırlar */
+}
+
+.row {
+    
+   width: 1018px; /* Containerın maksimum genişliği */
+ 
+    display: flex; /* Satırları yan yana hizalar */
+    flex-wrap: wrap; /* Satırları alt satıra geçirir */
+    margin: 0 -15px; /* Satırlar arasındaki dolgu uzunluğunu ayarlar */
+}
+
+.col-md-6 {
+    flex: 0 0 50%; /* Sütunların yarı genişliğini alır */
+    max-width: 50%; /* Sütunların maksimum genişliğini ayarlar */
+    padding: 0 15px; /* Sütunların kenar dolgularını ayarlar */
+}
+
+.explore-more-title {
+    font-weight: 500; /* Başlık kalınlığını ayarlar */
+}
+
+.hr {
+    border: none; /* Çizgiyi kaldırır */
+    border-top: 1px solid #ccc; /* Üst çizgiyi oluşturur */
+    margin-top: 15px; /* Üst dolgu uzunluğunu ayarlar */
+    margin-bottom: 15px; /* Alt dolgu uzunluğunu ayarlar */
+}
+
+.img-fluid {
+    max-width: 100%; /* Resmin maksimum genişliğini ayarlar */
+    height: auto; /* Resmin orijinal boyutlarına otomatik boyutlandırma sağlar */
+    border-radius: 5px; /* Resmin köşelerine yuvarlaklık ekler */
+    margin-top: 8px;
+}
+
+.font-weight-300 {
+    font-weight: 300; /* Yazı kalınlığını ayarlar */
+}
+
+.btn {
+    display: inline-block; /* Düğmeleri blok elementler yapar */
+    padding: 10px 20px; /* Dolgu uzunluğunu ayarlar */
+    border: none; /* Kenarlığı kaldırır */
+    border-radius: 5px; /* Köşeleri yuvarlar */
+    cursor: pointer; /* İmleci el işareti yapar */
+    text-decoration: none; /* Metin süslemesini kaldırır */
+    font-weight: 700; /* Yazı kalınlığını ayarlar */
+    font-size: 13px;
+}
+
+.btn-danger {
+ 
+    background: #e81932 !important;
+    color: white; /* Yazı rengini ayarlar */
+}
+
+.btn-danger:hover {
+    background-color: #ff0000; /* Fare üstüne geldiğinde dolgu rengini değiştirir */
+}
+.offer {
+    margin-right: 300px;
+    text-align: center; /* Metni ortala */
+    margin-top: 100px; /* Üst boşluk */
+    width: 994px;
+    height: 25px;
+    font-size: 30px;
+    font-family: MuseoSans-100 !important;
+}
+
+.offer p {
+    display: flex;
+    align-items: center; /* Metni ve resmi dikey olarak hizala */
+    justify-content: center; /* Metni yatay olarak ortala */
+}
+
+.offer img {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px; /* Metin ile resim arasına biraz boşluk bırakır */
+}
+
+.city {
+    color: red; /* İzmir yazısının rengini kırmızı yap */
+    margin-left: 10px; /* FROM metninden sonra bir boşluk ekler */
+}
+
+ 
+
+.text-center {
+    margin-top: 100px;
+    text-align: center; /* Metni ortala */
+}
+
+.text-content {
+    font-weight: 100; /* Yazının kalınlığı */
+    font-size: 30px; /* Yazı boyutu */
+}
+
+.redirect-flight-map-link {
+    font-weight: 700; /* Yazının kalınlığı */
+    font-size: 16px; /* Yazı boyutu */
+    text-decoration: none; /* Bağlantı altını çizme */
+    color: #000; /* Metin rengi */
+}
+
+.redirect-flight-map-link:hover {
+    color: #ff0000; /* Fare üzerine geldiğinde metin rengi */
+}
+
+.red {
+    color: #ff0000; /* Kırmızı renk */
+}
+.reverse-icon {
+    width: 20px; /* SVG genişliği */
+    height: auto; /* SVG yüksekliği otomatik olarak ayarlanır */
+    vertical-align: middle; /* Dikey hizalama */
+    margin-left: 5px; /* SVG ile metin arasındaki boşluk */
+}
+
+
+
+.custom-slider-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .custom-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .custom-slide {
+    flex: 0 0 100%;
+  }
+  
+  .custom-slide img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .custom-caption {
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .custom-prev, .custom-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: not-allowed;
+    font-size: 24px;
+    color: black;
+    padding: 10px;
+  }
+  
+  .custom-prev {
+    left: 0;
+  }
+  
+  .custom-next {
+    right: 0;
+  }
+  .gallery-container {
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+}
+
+
+  .gallery {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.image {
+
+  width: 330px; /* 331px'den 310px'e değiştirildi */
+  height: 310px;
+  text-align: center;
+  margin-bottom: 10px; /* 20px'den 10px'e değiştirildi */
+  margin-right: 5px; /* Aralarındaki boşluğu azaltmak için sağ marj eklendi */
+}
+
+.image img {
+    width: 270px; /* 331px'den 310px'e değiştirildi */
+    height: 150x;
+
+  margin-bottom: 10px;
+}
+
+.image p {
+  
+  margin: 5px 0;
+  font-size: 13pt;
+}
+
+.image h2 {
+ 
+  font-size: 14pt;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  height: 45px;
+}
+
+.red-text {
+    font-weight: bold;
+  color: red;
+}
+
+.red-text svg {
+    
+    width:14px;
+    height:14px;
+  }
+  
+.arrow {
+    
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.left-arrow {
+
+    left: 0;
+}
+
+.right-arrow {
+   
+    right: 0;
+}
+.arrow img {
+    height: 63px;
+    width: 63px;
+    color: rgb(177, 179, 183);
+}
+
+
+.container1 {
+   
+    width: 1290px;
+   height: 80px;
+    margin-top: 100px;
+     display: flex;
+    justify-content: right;
+}
+
+.d-flex {
+ 
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.brand {
+    width: 80px;
+    height: 80px;
+    margin-right: 2px; /* Logolar arası boşluk azaltıldı */
+}
+
+.award-title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 10px; /* Yazı boyutu değiştirildi */
+    font-weight: bold; /* Yazı kalınlığı */
+    color: #333; /* Yazı rengi */
+  
+}
+
+.container2 {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+ 
+}
+
+.brand1 {
+    width: 200px; /* Resimlerin genişliği */
+    height: 80px;
+    height: auto; /* Otomatik yükseklik ayarı */
+    margin-left: 100px;
+}
+/* Footer Styles */
+
+/* Footer Top Section */
+.footer{
+    margin-top: 50px;
+    width: 1519px;
+    height: 270px;
+  
+}
+.footer-top {
+    width: 1519px;
+    height: 60px;
+
+ 
+    margin-right: auto;
+    margin-left: auto;
+
+    background-color: #2b3947;
+    padding: 20px 0;
+}
+
+
+.svg-container {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.svg-container svg {
+    width: 17px;
+    height: 19px;
+    margin: 0 10px; /* SVG'ler arasındaki boşluk */
+    color: #c3cbd7;
+ 
+}
+.svg-container img {
+    width: 17px;
+    height: 20px;
+    margin: 0 10px; /* SVG'ler arasındaki boşluk */
+
+}
+
+.middle{
+    background-color:#232b38;
+}
+.footer-middle {
+
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    border-bottom: 1px solid #ffffff; /* Beyaz ince çizgi */
+}
+
+.footer-text {
+
+    text-align: center; /* Metinleri ortalar */
+    margin-top: 10px;
+    width: 94px; /* İstediğiniz genişlik */
+    height: 70px; /* İstediğiniz yükseklik */
+  
+   
+  
+ 
+}
+.footer-text h2 {
+
+    font-family: Arial, sans-serif; /* Arial veya istediğiniz bir yazı tipi */
+    font-size: 11px; /* İstediğiniz font boyutu */
+    font-weight: normal; /* İstediğiniz font kalınlığı */
+    color: #ffffff;
+     margin-right: 10px; /* Metinler arasında sağa doğru 10 piksel boşluk */
+ 
+
+}
+
+.footer-text img {
+    width: 20px; /* İstediğiniz genişlik */
+    height: 20px; /* İstediğiniz yükseklik */
+    display: block; /* Görüntüleri blok element olarak ayarlar */
+    margin: 0 auto; /* Yatayda merkezler */
+}
+
+
+.bottom {
+    width: 100%; /* Genişliği ekran genişliğine göre ayarla */
+    height: 139px; /* İstediğiniz yükseklik */
+    background-color: #232b38;
+    display: flex;
+    justify-content: center; /* Yazıları yatayda ortala */
+    align-items: center;
+ 
+  }
+  
+  .footer-bottom {
+ 
+    justify-content: space-between; /* Yazıları eşit aralıklarla dağıt */
+    align-items: center;
+  
+  }
+  
+  .footer-bottom p {
+    align-items: center;
+    margin: 0;
+  }
+  
+  .footer-links p {
+    font-size: 11px;
+    color: #c3cbd7;
+    display: inline-block;
+    margin-right: 20px; /* Yazılar arasındaki boşluk */
+
+  }
+  
+  .footer-bottom-center p {
+    font-size: 11px;
+    color: #c3cbd7;
+    margin-top: 10px;
+    text-align: center; /* Yazıyı sayfanın ortasına hizala */
+  }
