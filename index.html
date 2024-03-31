@@ -1,9 +1,1407 @@
-<!DOCTYPE html>
-<html>
+[15:16, 31.03.2024] Biriciğim: * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Kutu modelini sıfırlayın */
+}
+
+
+body {
+    margin: 0;
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    width: 100%; /* Sayfa genişliğini tarayıcı penceresinin genişliğine eşitle */
+    height: 100vh; /* Sayfa yüksekliğini tarayıcı penceresinin yüksekliğine eşitle */
+   
+    padding: 0; /* Sayfanın dolgularını kaldır */
+    overflow-x: hidden; /* Yatay kaydırmayı devre dışı bırak */
+}
+
+.top-menu {
+    width: 100%; /* Sayfa genişliğine göre genişlik ayarla */
+    max-width: 1519px; /* Maksimum genişlik belirle */
+    margin: 0 auto; /* Merkezlemek için otomatik kenar boşluğu ekle */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    height: 30px;
+    background-color: #2b3947;
+    position: fixed; /* Üst menüyü sabit konuma getir */
+    top: 0; /* Üst kenara dayalı olacak şekilde */
+
+}
+
+.top-menu .nav-links ul {
+    list-style: none;
+    display: flex;
+
+}
+
+.top-menu .nav-links ul li {
+    margin-right: 10px; /* Her öğe arasındaki sağ boşluğu ayarlayın */
+
+}
+
+.top-menu .nav-links ul li:last-child {
+    margin-right: 6px; /* Son öğe için sağ boşluğu kaldırın */
+}
+
+.top-menu .nav-links ul li a {
+    text-decoration: none; /* Bağlantı altını çizme */
+    color: #c3cbd7;
+    font-size: 11px; /* Bağlantı yazı boyutu */
+}
+
+.top-menu .nav-links ul li a:hover {
+    color: #ffffff; /* Fare bağlantı üzerine gelindiğinde renk değiştirme */
+}
+
+.main-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 30px;
+    padding: 0 20px; 
+    background-color: #232b38;/* Sağdan ve soldan içerideki içeriğin boşluğunu ayarlayın */
+    z-index: 999; /* Üst menüden daha altta olmalı */
+}
+
+
+.separator {
+    margin-right: 10px;
+    color: #ffffff; /* Separator rengi */
+}
+
+
+
+.main-menu-container {
+    position: relative; /* İçeriklerin konumunu ayarlamak için */
+}
+
+.main-menu img {
+  
+    height: 40px;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-menu svg {
+    width: 12px;
+    height: 12px;
+    width: auto;
+    margin-left:5px ;
+ 
+}
+.main-menu .nav-links ul {
+    list-style: none;
+    display: flex;
+    padding: 0; /* Listenin dış dolgusunu sıfırlayın */
+    margin: 0; /* Listenin dış kenar boşluğunu sıfırlayın */
+}
+
+.main-menu .nav-links ul li {
+    margin-right: 10px;
+    height: 100%; /* Öğelerin yüksekliğini %100 olarak ayarlayın */
+    display: flex; /* Öğeleri dikey hizalamak için flex kullanın */
+    align-items: center; /* Öğeleri dikeyde ortalamak için */
+}
+
+.main-menu .nav-links ul li:last-child {
+    margin-right: 0;
+}
+
+.main-menu .nav-links ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 13px; /* Bağlantı yazı boyutu */
+    font-weight: 700;
+}
+
+.main-menu .nav-links ul li a:hover {
+    color: #ffffff;
+}
+
+
+
+.search-link svg {
+
+   width: 13px;
+   height: 13px;
+   margin-right: 10px; /* SVG ile metin arasına bir boşluk bırak */
+   order: -1; /* SVG'yi metnin soluna hizalar */
+}
+
+.search-link, .search-link svg {
+    display: inline-flex; /* SVG'yi başlıkla aynı satırda tutar */
+
+}
+.image-container {
+    top: 80px; /* Ana menü yüksekliğine ek olarak 30 piksel daha */
+    left: 0;
+    position: relative; /* Resim ve metin konteynerinin konumu */
+    max-width: 100%; /* Resmin maksimum genişliği */
+    z-index: 1; /* Resmin üzerinde olması gerektiği için */
+}
+
+.image-container img {
+    width: 100%; /* Resim genişliği */
+    height: auto; /* Resim yüksekliği otomatik olarak ayarlanır */
+}
+
+.image-container p {
+    position: absolute; /* Metnin resmin üzerinde olması için */
+    top: 90px; /* Resmin üstünden 10 piksel aşağıda */
+    left: 300px; /* Soldan 10 piksel sağda */
+    color: white; /* Metin rengi */
+    font-size: 24px; /* Metin boyutu */
+   /*  font-weight: bold; Kalın font */
+}
+.image-container p:last-child {
+    top: 120px; /* İkinci paragrafı biraz daha aşağı kaydır */
+    font-size: 38px; /* Metin boyutu */
+    font-weight: 500;
+
+}
+.contact-us {
+    position: fixed; /* Sabit konum */
+    top: 60%; /* Sayfanın ortasından başlayarak */
+    right: 0; /* Otomatik sağ kenarı kaldır */
+
+  
+    background-color: #00548a; /* Mavi arka plan rengi */
+
+    padding: 10px 20px; /* İçeriği sarma */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+    z-index: 999; /* Diğer içeriklerin üzerinde görüntülenir */
+
+    width: 44px;
+    -webkit-user-select: none;
+    user-select: none;
+    writing-mode: vertical-rl;
+    padding: 22px 0;
+    font-size: 16px;
+    line-height: 44px;
+    transform: rotate(180deg);
+    color: #fff;
+    white-space: nowrap;
+
+  }
+  
+  
+
+.tabs {
+    width: 100%;
+    display: inline-block;
+    position: relative; /* Position ekleyerek z-index kullanılabilir */
+    z-index: 2; /* Diğer içeriklerden daha üstte olacak */
+    left:20%;
+    top:-40px;
+}
+
+
+/----- Tab Links -----/
+/* Clearfix */
+.tab-links:after {
+	display:block;
+	clear:both;
+	content:'';
+}
+
+.tab-links li {
+	margin:0px 5px;
+	float:left;
+	list-style:none;
+}
+
+.tab-links a {
+	padding:9px 15px;
+	display:inline-block;
+	border-radius:3px 3px 0px 0px;
+	background: #f4f5f8;
+    
+	font-size:16px;
+	font-weight:600;
+	color: #647281;
+	transition:all linear 0.15s;
+}
+
+.tab-links a:hover {
+	background:#ffffff;
+	text-decoration:none;
+}
+
+li.active a, li.active a:hover {
+	background:#fff;
+	color:#4c4c4c;
+}
+
+/----- Content of Tabs -----/
+.tab-content {
+	padding:15px;
+	border-radius:3px;
+	box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+	background:#fff;
+    width: 994px;
+    height:200px;
+
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.tab {
+	display:none;
+}
+
+
+.tab-links a {
+    position: relative; /* Bağlantının pozisyonunu ayarla */
+    color: #4c4c4c;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all linear 0.15s;
+    text-decoration: none;
+}
+
+.tab-links a:hover {
+    color: #4c4c4c; /* Bağlantı üzerine gelindiğinde rengi kırmızı yap */
+    text-decoration: none;
+}
+
+.tab-links a.active {
+    display:flex;
+    color: red; /* Aktif olan bağlantıyı kırmızı yap */
+}
+.tab.active {
+    display: flex;
+}
+
+.tab-links li.active a {
+    background: #fff;
+    color: red;
+}
+
+.tab-links img {
+    width: 18px; /* İstenilen genişlik */
+    height: 18px; /* İstenilen yükseklik */
+}
+/* CSS örnek */
+form {
+    display: flex;
+    flex-direction: row;
+}
+
+.radio-group {
+    margin-right: 20px; /* Her radio input grubu arasındaki sağ boşluğu ayarlar */
+   
+}
+
+.radio-group:last-child {
+    margin-right: 0; /* Son radio input grubu için sağ boşluğu kaldırır */
+    
+}
+
+input[type="radio"] {
+    margin-right: 5px; /* Her radio input arasındaki sağ boşluğu ayarlar */
+   
+}
+.content {
+    display: flex;
+    align-items: center; /* Dikey hizalama */
+  }
+  
+  .content img {
+    width: 20px; /* Resmin genişliği */
+    height: auto; /* Otomatik yükseklik ayarı */
+    margin-right: 10px; /* Resmin sağ tarafındaki boşluk */
+  }
+  
+  .content p {
+    margin: 0; /* Paragrafın kenar boşluklarını sıfırlama */
+  }
+  
+.rectangular-inputs {
+    flex: 1; /* Giriş alanlarının eşit genişlikte olmasını sağla */
+    margin-right: 10px; /* Giriş alanları arasındaki sağ boşluğu ayarla */
+
+    
+    margin-top: 20px; /* Giriş alanları arasındaki boşluğu ayarla */
+    z-index: 1;
+    display: flex; /* Giriş alanlarını yan yana hizalamak için flex kullan */
+}
+
+.rectangular-inputs input[type="text"] {
+    display: block;
+    width: 160px;
+    height:66px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    flex: 1; /* Giriş alanlarının eşit genişlikte olmasını sağla */
+    margin-right: 3px; /* Giriş alanları arasındaki sağ boşluğu ayarla */
+    background: #f4f6f8!important;
+
+}
+
+
+.rectangular-inputs img {
+    width: 33px; /* İkon genişliği */
+    height: 33px; /* İkon yüksekliği */
+  
+    position: relative; /* Görseli diğer içeriklerle hizalamak için */
+    margin-top: 15px; /* Yüksekliği ayarla (inputların yarı yüksekliği kadar yukarıda olacak şekilde) */
+    z-index: 2; /* Diğer içeriklerin üzerine gelmesini sağla */
+    filter: grayscale(100%); /* İkonu griye çevirmek için */
+
+
+}
+
+.date-input {
+    position: relative;
+}
+
+.date-input input[type="text"] {
+    padding-left: 50px; /* Label ve resim için yer bırakmak */
+}
+
+.date-input img {
+    position: absolute;
+    top: 25%;
+    left: 10px; /* Resmin input kutucuğunun solunda olmasını sağlar */
+    transform: translateY(-50%);
+}
+
+/*to 23 e 20 */
+.red-button {
+    display: inline-block;
+    width: 156px;
+    height:66px;
+    background-color: #e81932!important;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+    
+    
+}
+.red-button svg {
+    vertical-align: middle; /* SVG'yi dikey olarak hizalar */
+    margin-right: 10px; /* SVG ile metin arasına biraz boşluk bırakır */
+    margin-bottom: 2px; /* Metni yukarı taşır */
+}
+.tab.active form {
+    flex-direction: row; /* Formdaki öğeleri dikey yönde hizala */
+    align-items: flex-start; /* Öğeleri sola hizala */
+    flex-wrap: wrap; /* Öğelerin alt satıra geçmesini sağla */
+}
+
+.tab.active form p:last-child {
+    margin-left: auto; /* "Recent Searches" metnini sağa hizala */
+}
+
+
+.button-container {
+    position: relative; /* Bağlantının pozisyonunu ayarla */
+    width:994px;
+    display: flex;
+    padding: 0px 50px;
+    margin-top: 0px;
+    margin-left: 300px; /* Sayfanın sol kenarından sağa doğru ortala */
+    margin-right: auto; /* Sayfanın sağ kenarından sola doğru ortala */
+    align-items: center; /* Yuvarlak butonları dikeyde ortala */
+    
+}
+
+
+.round-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 40px; /* Yuvarlak butonların içindeki yuvarlakların hizasını ayarlar */
+    margin-top: 10px;
+}
+
+
+.round-button img {
+    width: 22px;
+    height: 21px;
+    margin: 0; /* Yuvarlak butonların içindeki yuvarlakların hizasını ayarlar */
+}
+
+
+.rectangular-background span {
+    font-size: 12px;
+    color: #232b38;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+
+}
+.rectangular-background {
+    width: 994px;
+    height: 100px;
+    border-radius: 0px;
+    background-color: #ffffff;
+    padding: 5px;
+    display: inline-block; /* Dikdörtgen kutuların yan yana gelmesini sağlar */
+    margin-right: 0px; /* Kutular arasındaki boşluk */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Gölge efekti ekle */
+}
+
+
+
+.slider-container {
+    width: 1018px;
+   height: 196px;
+    margin: auto;
+    margin-top: 50px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+    border: 1px dashed #2e8ffd!important;
+    margin-left: 300px;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .slide {
+    width: 100%;
+    flex-shrink: 0;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .slider-nav {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+  }
+  
+  .slider-nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    outline: none;
+    margin-left: 10px;
+  }
+
+  .slide-content {
+    
+   margin:20px;
+  }
+  .slide-content h2 {
+
+    font-size: 18px; /* Başlık boyutu */
+    margin-bottom: 10px; /* Başlık altındaki boşluk */
+  }
+  
+  .slide-content p {
+    font-size: 16px; /* Paragraf boyutu */
+    margin-bottom: 20px; /* Paragraf altındaki boşluk */
+  }
+  .slide-content svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px; /* SVG ile metin arasına bir boşluk bırakır */
+
+ 
+}
+
+.slide-content h2, .slide-content svg {
+    display: inline-flex; /* SVG'yi başlıkla aynı satırda tutar */
+
+}
+  .highlight {
+    color: red; /* Kırmızı renk */
+  }
+
+  .container {
+  
+    max-width: 1024px; /* Containerın maksimum genişliği */
+    margin: 0 auto; /* Containerı sayfanın ortasına hizalar */
+    padding: 0 15px; /* Containerın kenar dolgularını ayarlar */
+    margin-top: 50px;
+    margin-left: auto; /* Tüm içeriği sağa hizalar */
+    margin-right: 200px; /* Sağ kenar boşluğunu sıfırlar */
+}
+
+.row {
+    
+   width: 1018px; /* Containerın maksimum genişliği */
+ 
+    display: flex; /* Satırları yan yana hizalar */
+    flex-wrap: wrap; /* Satırları alt satıra geçirir */
+    margin: 0 -15px; /* Satırlar arasındaki dolgu uzunluğunu ayarlar */
+}
+
+.col-md-6 {
+    flex: 0 0 50%; /* Sütunların yarı genişliğini alır */
+    max-width: 50%; /* Sütunların maksimum genişliğini ayarlar */
+    padding: 0 15px; /* Sütunların kenar dolgularını ayarlar */
+}
+
+.explore-more-title {
+    font-weight: 500; /* Başlık kalınlığını ayarlar */
+}
+
+.hr {
+    border: none; /* Çizgiyi kaldırır */
+    border-top: 1px solid #ccc; /* Üst çizgiyi oluşturur */
+    margin-top: 15px; /* Üst dolgu uzunluğunu ayarlar */
+    margin-bottom: 15px; /* Alt dolgu uzunluğunu ayarlar */
+}
+
+.img-fluid {
+    max-width: 100%; /* Resmin maksimum genişliğini ayarlar */
+    height: auto; /* Resmin orijinal boyutlarına otomatik boyutlandırma sağlar */
+    border-radius: 5px; /* Resmin köşelerine yuvarlaklık ekler */
+    margin-top: 8px;
+}
+
+.font-weight-300 {
+    font-weight: 300; /* Yazı kalınlığını ayarlar */
+}
+
+.btn {
+    display: inline-block; /* Düğmeleri blok elementler yapar */
+    padding: 10px 20px; /* Dolgu uzunluğunu ayarlar */
+    border: none; /* Kenarlığı kaldırır */
+    border-radius: 5px; /* Köşeleri yuvarlar */
+    cursor: pointer; /* İmleci el işareti yapar */
+    text-decoration: none; /* Metin süslemesini kaldırır */
+    font-weight: 700; /* Yazı kalınlığını ayarlar */
+    font-size: 13px;
+}
+
+.btn-danger {
+ 
+    background: #e81932 !important;
+    color: white; /* Yazı rengini ayarlar */
+}
+
+.btn-danger:hover {
+    background-color: #ff0000; /* Fare üstüne geldiğinde dolgu rengini değiştirir */
+}
+.offer {
+    margin-right: 300px;
+    text-align: center; /* Metni ortala */
+    margin-top: 100px; /* Üst boşluk */
+    width: 994px;
+    height: 25px;
+    font-size: 30px;
+    font-family: MuseoSans-100 !important;
+}
+
+.offer p {
+    display: flex;
+    align-items: center; /* Metni ve resmi dikey olarak hizala */
+    justify-content: center; /* Metni yatay olarak ortala */
+}
+
+.offer img {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px; /* Metin ile resim arasına biraz boşluk bırakır */
+}
+
+.city {
+    color: red; /* İzmir yazısının rengini kırmızı yap */
+    margin-left: 10px; /* FROM metninden sonra bir boşluk ekler */
+}
+
+ 
+
+.text-center {
+    margin-top: 100px;
+    text-align: center; /* Metni ortala */
+}
+
+.text-content {
+    font-weight: 100; /* Yazının kalınlığı */
+    font-size: 30px; /* Yazı boyutu */
+}
+
+.redirect-flight-map-link {
+    font-weight: 700; /* Yazının kalınlığı */
+    font-size: 16px; /* Yazı boyutu */
+    text-decoration: none; /* Bağlantı altını çizme */
+    color: #000; /* Metin rengi */
+}
+
+.redirect-flight-map-link:hover {
+    color: #ff0000; /* Fare üzerine geldiğinde metin rengi */
+}
+
+.red {
+    color: #ff0000; /* Kırmızı renk */
+}
+.reverse-icon {
+    width: 20px; /* SVG genişliği */
+    height: auto; /* SVG yüksekliği otomatik olarak ayarlanır */
+    vertical-align: middle; /* Dikey hizalama */
+    margin-left: 5px; /* SVG ile metin arasındaki boşluk */
+}
+
+
+
+.custom-slider-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .custom-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .custom-slide {
+    flex: 0 0 100%;
+  }
+  
+  .custom-slide img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .custom-caption {
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .custom-prev, .custom-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: not-allowed;
+    font-size: 24px;
+    color: black;
+    padding: 10px;
+  }
+  
+  .custom-prev {
+    left: 0;
+  }
+  
+  .custom-next {
+    right: 0;
+  }
+  .gallery-container {
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+}
+
+
+  .gallery {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.image {
+
+  width: 330px; /* 331px'den 310px'e değiştirildi */
+  height: 310px;
+  text-align: center;
+  margin-bottom: 10px; /* 20px'den 10px'e değiştirildi */
+  margin-right: 5px; /* Aralarındaki boşluğu azaltmak için sağ marj eklendi */
+}
+
+.image img {
+    width: 270px; /* 331px'den 310px'e değiştirildi */
+    height: 150x;
+
+  margin-bottom: 10px;
+}
+
+.image p {
+  
+  margin: 5px 0;
+  font-size: 13pt;
+}
+
+.image h2 {
+ 
+  font-size: 14pt;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  height: 45px;
+}
+
+.red-text {
+    font-weight: bold;
+  color: red;
+}
+
+.red-text svg {
+    
+    width:14px;
+    height:14px;
+  }
+  
+.arrow {
+    
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.left-arrow {
+
+    left: 0;
+}
+
+.right-arrow {
+   
+    right: 0;
+}
+.arrow img {
+    height: 63px;
+    width: 63px;
+    color: rgb(177, 179, 183);
+}
+
+
+.container1 {
+   
+    width: 1290px;
+   height: 80px;
+    margin-top: 100px;
+     display: flex;
+    justify-content: right;
+}
+
+.d-flex {
+ 
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.brand {
+    width: 80px;
+    height: 80px;
+    margin-right: 2px; /* Logolar arası boşluk azaltıldı */
+}
+
+.award-title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 10px; /* Yazı boyutu değiştirildi */
+    font-weight: bold; /* Yazı kalınlığı */
+    color: #333; /* Yazı rengi */
+  
+}
+
+.container2 {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+ 
+}
+
+.brand1 {
+    width: 200px; /* Resimlerin genişliği */
+    height: 80px;
+    height: auto; /* Otomatik yükseklik ayarı */
+    margin-left: 100px;
+}
+/* Footer Styles */
+
+/* Footer Top Section */
+.footer{
+    margin-top: 50px;
+    width: 1519px;
+    height: 270px;
+  
+}
+.footer-top {
+    width: 1519px;
+    height: 60px;
+
+ 
+    margin-right: auto;
+    margin-left: auto;
+
+    background-color: #2b3947;
+    padding: 20px 0;
+}
+
+
+.svg-container {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.svg-container svg {
+    width: 17px;
+    height: 19px;
+    margin: 0 10px; /* SVG'ler arasındaki boşluk */
+    color: #c3cbd7;
+ 
+}
+.svg-container img {
+    width: 17px;
+    height: 20px;
+    margin: 0 10px; /* SVG'ler arasındaki boşluk */
+
+}
+
+.middle{
+    background-color:#232b38;
+}
+.footer-middle {
+
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    border-bottom: 1px solid #ffffff; /* Beyaz ince çizgi */
+}
+
+.footer-text {
+
+    text-align: center; /* Metinleri ortalar */
+    margin-top: 10px;
+    width: 94px; /* İstediğiniz genişlik */
+    height: 70px; /* İstediğiniz yükseklik */
+  
+   
+  
+ 
+}
+.footer-text h2 {
+
+    font-family: Arial, sans-serif; /* Arial veya istediğiniz bir yazı tipi */
+    font-size: 11px; /* İstediğiniz font boyutu */
+    font-weight: normal; /* İstediğiniz font kalınlığı */
+    color: #ffffff;
+     margin-right: 10px; /* Metinler arasında sağa doğru 10 piksel boşluk */
+ 
+
+}
+
+.footer-text img {
+    width: 20px; /* İstediğiniz genişlik */
+    height: 20px; /* İstediğiniz yükseklik */
+    display: block; /* Görüntüleri blok element olarak ayarlar */
+    margin: 0 auto; /* Yatayda merkezler */
+}
+
+
+.bottom {
+    width: 100%; /* Genişliği ekran genişliğine göre ayarla */
+    height: 139px; /* İstediğiniz yükseklik */
+    background-color: #232b38;
+    display: flex;
+    justify-content: center; /* Yazıları yatayda ortala */
+    align-items: center;
+ 
+  }
+  
+  .footer-bottom {
+ 
+    justify-content: space-between; /* Yazıları eşit aralıklarla dağıt */
+    align-items: center;
+  
+  }
+  
+  .footer-bottom p {
+    align-items: center;
+    margin: 0;
+  }
+  
+  .footer-links p {
+    font-size: 11px;
+    color: #c3cbd7;
+    display: inline-block;
+    margin-right: 20px; /* Yazılar arasındaki boşluk */
+
+  }
+  
+  .footer-bottom-center p {
+    font-size: 11px;
+    color: #c3cbd7;
+    margin-top: 10px;
+    text-align: center; /* Yazıyı sayfanın ortasına hizala */
+  }
+[15:16, 31.03.2024] Biriciğim: bu style.css
+[15:16, 31.03.2024] Biriciğim: <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Hello, World!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turkish Airlines ®️ | Flying to the Most Countries</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images\Turkish-Airlines-Small-3x-png.png" />
+
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <!-- Üst Menü (Top Menu) -->
+    <header>
+        <nav class="top-menu">
+            <a href="benimsite.html"></a>
+            <div class="nav-links">
+                <ul>
+                  <span class="separator">┊</span>
+                    <li><a href="#">Corporate Club</a></li>
+                    <span class="separator">┊</span>
+                    <li><a href="#">Miles&Smiles</a></li>
+                    <span class="separator">┊</span>
+                    <li><a href="#" class="search-link">Search<svg xmlns="http://www.w3.org/2000/svg" id="uuid-b117af90-d9a2-4199-81d9-f93ef4f3786d" data-name="Layer 1" viewBox="0 0 511.97 512"><path d="m416,208c0,45.9-14.9,88.3-40,122.7l126.6,126.7c12.5,12.5,12.5,32.8,0,45.3-12.5,12.5-32.8,12.5-45.3,0l-126.6-126.7c-34.4,25.2-76.8,40-122.7,40C93.1,416,0,322.9,0,208S93.1,0,208,0s208,93.1,208,208Zm-208,144c79.53,0,144-64.47,144-144s-64.47-144-144-144S64,128.47,64,208s64.47,144,144,144Z" style="fill: #fff;"/></svg></a></li>
+                    <span class="separator">┊</span>
+                    <li><a href="#">EN-INT</a></li>
+                </ul>
+            </div>
+        </nav>
+        <nav class="main-menu">
+            <a href="benimsite.html"><img src="images\THY-LOGO.png"></a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="#">PLAN&BOOK</a></li>
+                    <span class="separator">┊</span>
+                    <li><a href="#">FLY DIFFERENT</a></li>
+                    <span class="separator">┊</span>
+                    <li><a href="#">DISCOVER</a></li>
+                    <span class="separator">┊</span>
+                    <li><a href="#">MILES&SMILES</a></li>
+                    <span class="separator">┊</span>
+                    <li><a href="#">HELP</a></li>
+                    <span class="separator">┊</span>
+                    <li><a href="#">Sign Up</a></li>
+                    <span class="separator">┊</span>
+                    <li><a href="#">SIGN IN</a>
+                      <svg class="svg-inline--fa fa-user" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="color: rgb(255, 255, 255);"><path class="" fill="currentColor" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"></path></svg>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Ana Menü (Main Menu) -->
+   
+
+    <!-- Resim ve Metin Konteynerı -->
+    <div class="image-container">
+        <img src="images\EN-INT-EN-US-1.webp" >
+        <p>HELLO</p>
+        <p>Where do you want to explore?</p>
+    </div>
+    <div class="tabs">
+        <ul class="tab-links">
+            <li class="active"><a href="#Flight"><img src="images\flight-departures-svgrepo-com.svg" alt="Flight icon"> Flight</a></li>
+            <li><a href="#tab2"><img src="images\koltuk-new-fe035456.svg" alt="Check-in icon"> Check -in/Manage booking</a></li>
+            <li><a href="#tab3"><img src="images\flight-arrival-svgrepo-com.svg" alt="Flight Status icon"> Flight Status</a></li>
+        </ul>
+        
+        <div class="tab-content">
+            <div id="Flight" class="tab active">
+                <form>
+                    <div class="radio-group">
+                        <input type="radio" id="roundTrip" name="tripType" value="roundTrip">
+                        <label for="roundTrip">Round Trip</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="oneWay" name="tripType" value="oneWay">
+                        <label for="oneWay">One Way</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="stopover" name="tripType" value="stopover">
+                        <label for="stopover">Stopover Istanbul</label>
+                    </div>
+
+                    <div class="radio-group">
+                        <input type="radio" id="stopover" name="tripType" value="stopover">
+                        <label for="stopover">Multi-city</label>
+                    </div>
+
+                    <div class="content">
+                        <img src="images\login-arrow-svgrepo-com.svg" alt="Award Ticket Image">
+                        <p>Award ticket - Buy a ticket with Miles</p>
+                      </div>
+                     <div class="rectangular-inputs">
+                        <input type="text" placeholder="FROM">
+                        <img src="images\exchange-change-svgrepo-com.svg" alt="From icon">
+                        <input type="text" placeholder="TO">
+                        <div class="date-input">
+                          <img src="images\date-range-svgrepo-com.svg" alt="Calendar icon">
+                          <input type="text" placeholder="Dates">
+                 
+                      </div>
+                        <input type="text" placeholder=" Passenger">
+                        <button class="red-button">Search flights 
+                          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+                            <path fill="#FFFFFF" fill-rule="nonzero" d="M0 8.3v2.4h14.408l-6.604 6.604L9.5 19 19 9.5 9.5 0 7.804 1.696 14.408 8.3z" opacity="1"/>
+                        </svg>
+                        </button>
+
+                    </div>
+
+                    <p> Recent Searches</p>
+                </form>
+            
+              
+            </div>
+            
+       
+        </div>
+    </div>
+<div class="button-container">
+    <div class="rectangular-background">
+        <button class="round-button">
+            <img src="images\koltuk-new-fe035456.svg" alt="Icon 1">
+    
+        </button>
+        <span>Seat Selection</span>
+    </div>
+    <div class="rectangular-background">
+        <button class="round-button">
+            <img src="images\bagaj-new-550360c3.svg" alt="Icon 2">
+           
+        </button>
+        <span>Extra Baggage</span>
+    </div>
+    <div class="rectangular-background">
+        <button class="round-button">
+            <img src="images\otel-new-cdb9bcea.svg" alt="Icon 3">
+
+        </button>
+        <span>Book a Hotel</span>
+    </div>
+    <div class="rectangular-background">
+        <button class="round-button">
+            <img src="images\bagaj-new-550360c3.svg" alt="Icon 4">
+            
+        </button>
+        <span>Rent a Car </span>
+    </div>
+    <div class="rectangular-background">
+        <button class="round-button">
+            <img src="images\travelinsurance-new-3f1c3da2.svg" alt="Icon 5">
+            
+        </button>
+        <span>Travel Insurance</span>
+    </div>
+    <div class="rectangular-background">
+        <button class="round-button">
+            <img src="images\giftcard-new-6b45e73f.svg" alt="Icon 6">
+         
+        </button>
+        <span>Gift Card</span>
+    </div>
+
+
+
+
+</div>
+
+<div class="contact-us">
+  <span>Contact us</span>
+</div>
+
+
+<div class="slider-container">
+    <div class="slides">
+      <div class="slide">
+   
+        <div class="slide-content">
+          <svg class="svg-inline--fa fa-triangle-exclamation float-start pt-1 pe-3 ps-1" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="triangle-exclamation" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="font-size: 18px !important;"><path class="" fill="currentColor" d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path></svg>
+          <h2>Dear Passengers,</h2>
+          <p>On March 31, 2024, due to the local elections in Türkiye, additional rights have been granted to our passengers who are citizens of the Republic of Türkiye. You can find detailed information on this <span class="highlight">page</span>.</p>
+        </div>
+      </div>
+      <div class="slide">
+     
+        <div class="slide-content">
+          <svg class="svg-inline--fa fa-triangle-exclamation float-start pt-1 pe-3 ps-1" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="triangle-exclamation" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="font-size: 18px !important;"><path class="" fill="currentColor" d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path></svg>
+          <h2>Dear Passengers,</h2>
+          <p>Due to the terrorist attacks in Moscow, additional rights have been granted to our passengers who are registered on Moscow flights. You can find detailed information on this <span class="highlight">page</span>.</p>
+        </div>
+      </div>
+      <div class="slide">
+
+        <div class="slide-content">
+          <h2>Our new brand AJet started online ticket sales!</h2>
+          <p>AnadoluJet, which meets the air transportation needs of Anatolia in an advantageous way, started ticket sales under the name AJet as of March 12, 2024 via its official website AJet.com. You can find detailed information about your questions about AnadoluJet and AJet flights on this <span class="highlight">page</span>.</p>
+        </div>
+      </div>
+      <div class="slide">
+       
+        <div class="slide-content">
+          <svg class="svg-inline--fa fa-triangle-exclamation float-start pt-1 pe-3 ps-1" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="triangle-exclamation" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="font-size: 18px !important;"><path class="" fill="currentColor" d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path></svg>
+          <h2>Dear Passengers,</h2>
+          <p>Some additional controls may be applied to accept passengers on our flights to Venezuela, Mexico, Colombia, Panama, Cuba and Brazil. You can find detailed information on this <span class="highlight">page</span>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slider-nav">
+      <button onclick="prevSlide()">&#10094;</button>
+      <button onclick="nextSlide()">&#10095;</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6 col-border">
+            <span class="explore-more-title font-weight-500">For advantageous refunds and fast payment: TK Wallet!</span>
+            <hr>
+            <img class="img-fluid rounded" width="500" height="250" loading="lazy" src="https://cdn.turkishairlines.com/m/55965a3adec60787/original/500x250_tkczdn_guncel_logolu_2.jpg" alt="For advantageous refunds and fast payment: TK Wallet!">
+            <br>
+            <br>
+            <p class="font-weight-300">
+                With TK Wallet, our special product for Miles&Smiles members, you can perform payments and complete refund processes quickly and easily via a digital wallet created in one of four available currencies. In addition, you can earn incremental TK Money via refunds to your digital wallet.
+            </p>
+            <br>
+            <a  class="btn btn-danger font-weight-700">Discover</a>
+        </div>
+        <div class="col-md-6 col-border">
+            <span class="explore-more-title font-weight-500">Touristanbul: An amazing experience!</span>
+            <hr>
+            <img class="img-fluid rounded" width="500" height="250" loading="lazy" src="https://cdn.turkishairlines.com/m/16a1746c7150923a/original/touristanbul.jpg" alt="Touristanbul: An amazing experience!">
+            <br>
+            <br>
+            <p class="font-weight-300">
+                You can benefit from our complimentary Touristanbul service to make memories which is offered to our passengers who have a connecting international flight in Istanbul with a layover between 6-24 hours.
+            </p>
+            <br>
+            <a  class="btn btn-danger font-weight-700">Discover</a>
+        </div>
+    </div>
+</div>
+
+<div class="offer">
+  <p>See our best offers from <span class="city"> Izmir
+   
+  </span>
+  <img src="images\red_traingel_down.svg" alt="Aşağı">
+  </p>
+
+</div>
+<div class="text-center">
+  <div class="text-content font-weight-100">
+      <span>To the new cities with special deals!</span>
+  </div>
+  <a class="font-weight-700 redirect-flight-map-link" href="/en-int/flights/">
+      <span>Show all campaigns</span>
+      <svg class="svg-inline--fa fa-angles-right red reverse-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angles-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path class="" fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L370.7 256 233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L178.7 256 41.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"></path>
+      </svg>
+  </a>
+</div>
+<div class="gallery-container">
+  <div class="arrow left-arrow"><img src="images\arrow-left-circle-svgrepo-com.svg" alt="Left Arrow"></div>
+  <div class="gallery">
+  
+      <div class="image">
+          <img src="images\270x150_ajet_en-01.avif" alt="Resim 1">
+          <h2 class="title">Online ticket sales for our new brand, AJet, have begun!</h2>
+          <p>AnadoluJet, that fulfills Anatolia's air transport needs, is now operating domestic and international flights under the AJet brand on ajet.com.</p>
+          <div class="red-text">Discover Alert
+          <svg class="svg-inline--fa fa-angles-right red reverse-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angles-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path class="" fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L370.7 256 233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L178.7 256 41.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"></path>
+        </svg>
+      </div>
+      </div>
+      <div class="image">
+          <img src="images\270x150-1.avif" alt="Resim 2">
+          <h2 class="title">Explore best flight deals on our most popular routes!</h2>
+          <p>Book your flight now with advantageous fares.</p>
+          <div class="red-text">Learn More 
+          <svg class="svg-inline--fa fa-angles-right red reverse-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angles-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path class="" fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L370.7 256 233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L178.7 256 41.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"></path>
+        </svg>
+      </div>
+      </div>
+      <div class="image">
+          <img src="images\melbourne_270x150jpg.avif" alt="Resim 3">
+          <h2 class="title">Fly to Australia with the Turkish Airlines privileges</h2>
+          <p>Our journey to Australia has begun. Book your flight now on our website or app to explore this unique continent.</p>
+          
+          <div class="red-text">Discover
+          <svg class="svg-inline--fa fa-angles-right red reverse-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angles-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path class="" fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L370.7 256 233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L178.7 256 41.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"></path>
+        </svg>
+      </div>
+      </div>
+  
+  </div>
+
+  <div class="arrow right-arrow"><img src="images\arrow-right-circle-svgrepo-com.svg" alt="Right Arrow"></div>
+</div>
+
+
+<div class="container1">
+  <div class="d-flex">
+      
+          <img src="images\apex-worldclass-footer.avif" class="brand" alt="WORLD CLASS AIRLINE">
+          <div class="award-title">WORLD CLASS AIRLINE</div>
+     
+  </div>
+  <div class="d-flex">
+     
+          <img src="images\apex-fivestar-footer.avif" class="brand" alt="FIVE STAR GLOBAL AIRLINE">
+          <div class="award-title">FIVE STAR GLOBAL AIRLINE</div>
+     
+  </div>
+  <div class="d-flex">
+      
+          <img src="images\SKYT_winner.avif" class="brand" alt="BEST AIRLINE IN EUROPE">
+          <div class="award-title">BEST AIRLINE IN EUROPE</div>
+     
+  </div>
+  <div class="d-flex">
+      
+          <img src="images\SKYT_winner.avif" class="brand" alt="BEST BUSINESS CLASS CATERING">
+          <div class="award-title">BEST BUSINESS CLASS CATERING</div>
+      
+  </div>
+</div>
+<div class="container2">
+  <img src="images\Turkish-Airlines-Star-Alliance-1.webp" class="brand1" alt="Star Alliance">
+  <img src="images\Champions-League-Logo.avif" class="brand1" alt="UEFA Champions League">
+  <img src="images\Euroleague-logo.avif" class="brand1" alt="EuroLeague">
+</div>
+<footer>
+  <div class="footer">
+  <div class="footer-top">
+      
+          <div class="svg-container">
+              <svg class="" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 279.14 512">
+                  <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+              </svg>
+              <svg id="uuid-4ed682cb-7927-4cdf-97d9-b42f3e708c9f" data-name="svg5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <g id="uuid-78de19f7-6e69-4658-a08d-2848e11b663f" data-name="layer1">
+                  <path id="uuid-9decc2f6-e82f-41ea-b51e-9469032e863b" data-name="path1009" d="m.6,1.16l7.29,9.75L.56,18.84h1.65l6.42-6.94,5.19,6.94h5.62l-7.7-10.3,6.83-7.38h-1.65l-5.92,6.39L6.22,1.16H.6Zm2.43,1.22h2.58l11.4,15.24h-2.58L3.03,2.38Z" style="fill: #c3cbd7;"/>
+                </g>
+              </svg>
+              <svg class="svg-inline--fa fa-instagram" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+              <svg class="svg-inline--fa fa-youtube" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path class="" fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+              <svg class="svg-inline--fa fa-linkedin-in" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
+              <svg class="svg-inline--fa fa-tiktok" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="tiktok" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"></path></svg>
+              <img src="images\indir.png" class="brand" alt="BEST BUSINESS CLASS CATERING">
+          </div>
+   
+  </div>
+  <div class="middle">
+    <div class="footer-middle">
+    <div class="footer-text">
+        <h2>PLAN & BOOK</h2>
+        <img src="images\triangle-down-svgrepo-com.svg" alt="Aşağı Ok">
+    </div>
+    <div class="footer-text">
+        <h2>FLY DIFFERENT</h2>
+        <img src="images\triangle-down-svgrepo-com.svg" alt="Aşağı Ok">
+    </div>
+    <div class="footer-text">
+      <h2>DISCOVER</h2>
+      <img src="images\triangle-down-svgrepo-com.svg" alt="Aşağı Ok">
+  </div>
+  <div class="footer-text">
+    <h2>HELP</h2>
+    <img src="images\triangle-down-svgrepo-com.svg" alt="Aşağı Ok">
+</div>
+<div class="footer-text">
+  <h2>MILES&SMILES</h2>
+  <img src="images\triangle-down-svgrepo-com.svg" alt="Aşağı Ok">
+</div>
+<div class="footer-text">
+  <h2>CORPORATE CLUB</h2>
+  <img src="images\triangle-down-svgrepo-com.svg" alt="Aşağı Ok">
+</div>
+<div class="footer-text">
+  <h2>TURKISH AIRLINES</h2>
+  <img src="images\triangle-down-svgrepo-com.svg" alt="Aşağı Ok">
+</div>
+</div>
+
+</div>
+
+
+<div class="bottom">
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <p>Accesibility</p>
+      <p>Privicy & Cookie Policy</p>
+      <p>Legal Notice</p>
+      <p>Passenger Rights</p>
+      <p>Change Cookşe Settings </p>
+      <p>EU Data Subjects Rights</p>
+    </div>
+    <div class="footer-bottom-center">
+      <p>Turkish Airlines Copyright &copy; 1996-2024</p>
+    </div>
+  </div>
+</div>
+
+
+
+</footer>
+
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+  
+    function showSlide(slideIndex) {
+      if (slideIndex < 0) {
+        currentSlide = totalSlides - 1;
+      } else if (slideIndex >= totalSlides) {
+        currentSlide = 0;
+      } else {
+        currentSlide = slideIndex;
+      }
+  
+      const offset = -currentSlide * 100;
+    document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
+    }
+  
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+  
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+  
+    setInterval(nextSlide, 5000); // Otomatik geçiş
+  </script>
 </body>
 </html>
